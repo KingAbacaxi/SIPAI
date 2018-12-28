@@ -29,18 +29,22 @@ Dado("que tenha acessado o SIGAM") do
   end
   
   Então("o botao de Adicionar") do
+    @DicMetPesca = DicMetPesca.new
     @DicMetPesca.verificarBotaoAdd
   end
   
   Então("o componente de Pesquisa") do
+    @DicMetPesca = DicMetPesca.new
     @DicMetPesca.verificarBotaoPesquisar
   end
   
   Então("o exportador para Excel") do
+    @DicMetPesca = DicMetPesca.new
     @DicMetPesca.verificarBotaoExcel
   end
   
   Então("as condicoes de pesquisa {string} {string} {string}") do |cond1, cond2, cond3|
+    @DicMetPesca = DicMetPesca.new
     @DicMetPesca.verificarCondicoesPesquisa(cond1,cond2,cond3)
     
     
@@ -61,20 +65,24 @@ Dado("que tenha acessado o SIGAM") do
   end
   
   Então("Sistema deve exibir tela de inclusao para Método de Pesca") do
+
     @TelaMetodoPesca =TelaMetodoPesca.new
     nomeTela = @TelaMetodoPesca.verificarTela 
     puts (nomeTela)
   end
   
   Então("os campos {string} {string} {string} {string}") do |campo1, campo2, campo3, campo4|
+    @TelaMetodoPesca =TelaMetodoPesca.new
     @TelaMetodoPesca.verificarCampos(campo1, campo2, campo3, campo4)
   end
   
   Então("os botões {string} {string} {string}") do |btn1, btn2, btn3|
+    @TelaMetodoPesca =TelaMetodoPesca.new
     @TelaMetodoPesca.verificarBotoes(btn1, btn2, btn3)
   end
   
   Então("não deve exibir o botão de {string}") do |btn|
+    @TelaMetodoPesca =TelaMetodoPesca.new
    msg= @TelaMetodoPesca.verificarBtn('1', btn)
    puts msg
    
@@ -90,10 +98,12 @@ Dado("que tenha acessado o SIGAM") do
   end
   
   Quando("clicar em Atualizar") do
+    @TelaMetodoPesca =TelaMetodoPesca.new
     @TelaMetodoPesca.clicarAtualizar
   end
   
   Então("sistema deve exibir a mensagem de {string}") do |msg|
+    @TelaMetodoPesca =TelaMetodoPesca.new
     @TelaMetodoPesca.verificarMsg(msg)
     
   end

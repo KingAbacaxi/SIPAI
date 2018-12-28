@@ -8,6 +8,8 @@ class AcessarSipai < SitePrism::Page
     element :grupoUC,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15602"]'
     element :metodoPesca, 'a[href="/sigam-sipai-test/Default.aspx?idPagina=15608"]'
     element :vistoriaAmbiental, 'a[href="/sigam-sipai-test/Default.aspx?idPagina=15612"]'
+    element :vistoriaAmbientalMenu, 'a[href="/sigam-sipai-test/Default.aspx?idPagina=15618"]'
+    element :tipoVeiculoVistoria,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15607"]'
     
 
     def moduloSipai 
@@ -30,8 +32,14 @@ class AcessarSipai < SitePrism::Page
     end
 
     def menuMetodoPesca
-        vistoriaAmbiental.hover
+        vistoriaAmbientalMenu.hover
         sleep 2
         metodoPesca.click
+    end
+
+    def menuTipoVeiculoVistoria
+        vistoriaAmbientalMenu.hover
+        sleep 2
+        tipoVeiculoVistoria.click
     end
 end
