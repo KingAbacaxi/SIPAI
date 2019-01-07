@@ -74,6 +74,7 @@ class DicionarioPadrao  < SitePrism::Page
      end
     def editarMetodoPesca(posicao)
        posicao = posicao*4
+       
       all('#ctl00_conteudo_ctl00_gvConsulta td a[href]')[posicao].click
     end
  end

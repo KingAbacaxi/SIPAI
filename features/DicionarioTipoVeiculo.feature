@@ -62,7 +62,7 @@ Então sistema deve exibir no Grid somente os itens com a flag É falso nao sele
 
 Cenario: Verificar tela de Edicao do itens do dicionario de Tipo de Veículo
 Quando pesquisar um tipo de veiculo o item de titulo 'caminhonete'
-E clicar em editar no grid 
+E clicar em editar no grid Tipo de Veiculo
 Então sistema deve exibir tela de edicao com os campos preenchidos 
 E exibir o botao 'Excluir'
 
@@ -76,9 +76,8 @@ Quando clicar em excluir um um tipo de veiculo
 Então sistema deve excluir o item e atualizar o grid
 
 Cenario: Verificar Excluir item no dicionario de Tipo de Veículo com usuario nao adm
-Quando logar com usuario 'naianal' senha 'test'
-E acessar SIPAI
+Quando logar com usuario 'naianal' senha 'teste' dento do modulo do sipai
 E clicar em dicionario
 E clicar em Dicionario Tipo de Veículo
-E clicar em editar no grid
+E clicar em editar no grid metodo de pesca
 Então sistema nao deve exibir opcao de 'Excluir'

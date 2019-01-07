@@ -106,30 +106,72 @@ Quando("acessar o Dicionario Tipo de Veículo") do
     @dicPadraoIni.pesquisarBtn
   end
   
-  Quando("pesquisar um tipo de veiculo o item de titulo {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+  Quando("pesquisar um tipo de veiculo o item de titulo {string}") do |valor|
+    steps %q{
+      Dado que tenha acessado o SIGAM
+      E logado com usuario 'gtiAdm' senha 'a'
+      Quando clicar entrar no modulo do SIPAI
+      E clicar no menu dicionario
+      E acessar o Dicionario Tipo de Veículo
+  }
+     @dicPadraoIni = DicionarioPadrao.new
+     @dicPadraoIni.pesquisar('Título','Contém',valor)
+     @dicPadraoIni.adicionarPesquisaBtn
+     @dicPadraoIni.pesquisarBtn
+    
+
   end
-  
+  Quando("clicar em editar no grid Tipo de Veiculo") do
+    @dicPadraoIni = DicionarioPadrao.new
+    @dicPadraoIni.editarMetodoPesca(1)
+  end
   Quando("alterar a flag Ativo para Inativo de um tipo de veiculo") do
-    pending # Write code here that turns the phrase above into concrete actions
+    steps %q{
+      Quando pesquisar um tipo de veiculo o item de titulo 'caminhonete'
+      E clicar em editar no grid Tipo de Veiculo
+    }
+    page.uncheck('ctl00_conteudo_ctl00_flaAtivo')
+   
   end
   
   Então("sistema deve alterar os items e atualizar o Grid") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @dicPadraoIni = DicionarioPadrao.new
+    @dicPadraoIni.pesquisarFlag('Ativo/Inativo', 'É falso')
+    @dicPadraoIni.adicionarPesquisaBtn
+    @dicPadraoIni.pesquisarBtn
   end
   
   Quando("clicar em excluir um um tipo de veiculo") do
-    pending # Write code here that turns the phrase above into concrete actions
+    steps %q{
+      Quando pesquisar um tipo de veiculo o item de titulo 'caminhonete'
+      E clicar em editar no grid Tipo de Veiculo
+    }
+    @dicPadraoEdt = EdicaoDicionarioPadrao.new
+    @dicPadraoEdt.btnExcluir.click
   end
-  
+  Quando("logar com usuario {string} senha {string} dento do modulo do sipai") do |usuario, senha|
+    visit 'http://homologacao-sigam.eastus2.cloudapp.azure.com/sigam-sipai-test/Default.aspx?idPagina=15303'
+   
+    @LoginSigam = LoginSigam.new
+   find('#ctl00_cmdLogin').click 
+    @LoginSigam.loginDados(usuario,senha)
+  end
   Quando("acessar SIPAI") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @AcessarSipai = AcessarSipai.new
+    @AcessarSipai.moduloSipai
   end
   
   Quando("clicar em dicionario") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @AcessarSipai = AcessarSipai.new
+    @AcessarSipai.abrirMenuDicionario
   end
   
   Quando("clicar em Dicionario Tipo de Veículo") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @AcessarSipai = AcessarSipai.new
+    @AcessarSipai.menuTipoVeiculoVistoria
+  end
+
+  Quando("clicar em editar no grid metodo de pesca") do
+    @dicPadraoIni = DicionarioPadrao.new
+    @dicPadraoIni.editarMetodoPesca(1)
   end

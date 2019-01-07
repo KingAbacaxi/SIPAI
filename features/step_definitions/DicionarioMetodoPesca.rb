@@ -15,6 +15,7 @@ Dado("que tenha acessado o SIGAM") do
   end
   
   Quando("clicar no menu dicionario") do
+    @AcessarSipai = AcessarSipai.new
     @AcessarSipai.abrirMenuDicionario
   end
   
