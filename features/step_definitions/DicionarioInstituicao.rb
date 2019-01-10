@@ -1,52 +1,51 @@
-Quando("acessar o Dicionario Tipo de Acao") do
+Quando("acessar o Dicionario Instituição") do
     @AcessarSipai = AcessarSipai.new
     @AcessarSipai.vistoriaAmbientalMenu.hover
-    @AcessarSipai.tipoTipoAcaoVistoria.click
+    @AcessarSipai.tipoInstituicao.click
   end
   
-  Então("Sistema deve exibir interface do dicionario Tipo de Acao") do
-    expect(page).to have_current_path('http://homologacao-sigam.eastus2.cloudapp.azure.com/sigam-sipai-test/Default.aspx?idPagina=15609', url: true)
+  Então("Sistema deve exibir interface do dicionario Instituição") do
+    expect(page).to have_current_path('http://homologacao-sigam.eastus2.cloudapp.azure.com/sigam-sipai-test/Default.aspx?idPagina=15623', url: true)
   end
   
-  Quando("Clicar em Adicionar no dicionario Tipo de Acao") do
+  Quando("Clicar em Adicionar no dicionario Instituição") do
     steps %q{
         Dado que tenha acessado o SIGAM
         E logado com usuario 'gtiAdm' senha 'a'
         Quando clicar entrar no modulo do SIPAI
         E clicar no menu dicionario
-        E acessar o Dicionario Tipo de Acao
+        E acessar o Dicionario Instituição
     }
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.btnNovo.click
   end
   
-  Então("Sistema deve exibir tela de inclusao para Tipo de Acao") do
-    tirar_foto('Tela_inclusao_Tipo_acao', 'passou')
+  Então("Sistema deve exibir tela de inclusao para Instituição") do
+    tirar_foto('Tela_inclusao_Instituicao', 'passou')
   end
   
-  Quando("Preecher os campos de um novo Tipo de Acao titulo {string} ordem {string} Ativo {string} descricao {string}") do |tit,ord,ativ,descri|
+  Quando("Preecher os campos de um novo Instituição titulo {string} ordem {string} Ativo {string} descricao {string}") do |tit,ord,ativ,descri|
     steps %q{
-        Quando Clicar em Adicionar no dicionario Tipo de Acao
+        Quando Clicar em Adicionar no dicionario Instituição
     }
     @dicPadraoEdt = EdicaoDicionarioPadrao.new
     @dicPadraoEdt.preencherDados(tit,ord,ativ,descri)
   end
   
-  Quando("incluir um novo item no dicionario de Tipo de Acao") do
+  Quando("incluir um novo item no dicionario de Instituição") do
     steps %q{
-        Quando Preecher os campos de um novo Tipo de Acao titulo 'Vistoria noturna' ordem '1' Ativo 'sim' descricao 'automação' 
+        Quando Preecher os campos de um novo Instituição titulo 'Fundação Floresta' ordem '1' Ativo 'sim' descricao 'Fundação Floresta do estado de são paulo' 
 
     }
-        
   end
   
-  Quando("pesquisar um Tipo de Acao pela descricao {string}") do |valor|
+  Quando("pesquisar um Instituição pela descricao {string}") do |valor|
     steps %q{
         Dado que tenha acessado o SIGAM
         E logado com usuario 'gtiAdm' senha 'a'
         Quando clicar entrar no modulo do SIPAI
         E clicar no menu dicionario
-        E acessar o Dicionario Tipo de Acao
+        E acessar o Dicionario Instituição
     }
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.pesquisar('Descrição','Contém',valor)
@@ -54,13 +53,13 @@ Quando("acessar o Dicionario Tipo de Acao") do
     @dicPadraoIni.pesquisarBtn
   end
   
-  Quando("pesquisar um Tipo de Acao pelo titulo {string}") do |valor|
+  Quando("pesquisar um Instituição pelo titulo {string}") do |valor|
     steps %q{
         Dado que tenha acessado o SIGAM
         E logado com usuario 'gtiAdm' senha 'a'
         Quando clicar entrar no modulo do SIPAI
         E clicar no menu dicionario
-        E acessar o Dicionario Tipo de Acao
+        E acessar o Dicionario Instituição
     }
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.pesquisar('Título','Contém',valor)
@@ -68,13 +67,13 @@ Quando("acessar o Dicionario Tipo de Acao") do
     @dicPadraoIni.pesquisarBtn
   end
   
-  Quando("pesquisar um Tipo de Acao por itens {string} com parametro {string}") do |filtro,argumento|
+  Quando("pesquisar um Instituição por itens {string} com parametro {string}") do |filtro,argumento|
     steps %q{
         Dado que tenha acessado o SIGAM
         E logado com usuario 'gtiAdm' senha 'a'
         Quando clicar entrar no modulo do SIPAI
         E clicar no menu dicionario
-        E acessar o Dicionario Tipo de Acao
+        E acessar o Dicionario Instituição
     }
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.pesquisarFlag(filtro,argumento)
@@ -82,13 +81,13 @@ Quando("acessar o Dicionario Tipo de Acao") do
     @dicPadraoIni.pesquisarBtn
   end
   
-  Quando("pesquisar um Tipo de Acao pela flag {string} com parametro {string}") do |filtro,argumento|
+  Quando("pesquisar um Instituição pela flag {string} com parametro {string}") do |filtro,argumento|
     steps %q{
         Dado que tenha acessado o SIGAM
         E logado com usuario 'gtiAdm' senha 'a'
         Quando clicar entrar no modulo do SIPAI
         E clicar no menu dicionario
-        E acessar o Dicionario Tipo de Acao
+        E acessar o Dicionario Instituição
     }
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.pesquisarFlag(filtro,argumento)
@@ -96,13 +95,13 @@ Quando("acessar o Dicionario Tipo de Acao") do
     @dicPadraoIni.pesquisarBtn
   end
   
-  Quando("pesquisar um Tipo de Acao o item de titulo {string}") do |valor|
+  Quando("pesquisar um Instituição o item de titulo {string}") do |valor|
     steps %q{
         Dado que tenha acessado o SIGAM
         E logado com usuario 'gtiAdm' senha 'a'
         Quando clicar entrar no modulo do SIPAI
         E clicar no menu dicionario
-        E acessar o Dicionario Tipo de Acao
+        E acessar o Dicionario Instituição
     }
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.pesquisar('Título','Contém',valor)
@@ -110,30 +109,30 @@ Quando("acessar o Dicionario Tipo de Acao") do
     @dicPadraoIni.pesquisarBtn
   end
   
-  Quando("clicar em editar no grid Tipo de Acao") do
+  Quando("clicar em editar no grid Instituição") do
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.editarMetodoPesca(0)
   end
   
-  Quando("alterar a flag Ativo para Inativo de um Tipo de Acao") do
+  Quando("alterar a flag Ativo para Inativo de um Instituição") do
     steps %q{
-        Quando pesquisar um Tipo de Acao o item de titulo 'Visto'
-        E clicar em editar no grid Tipo de Acao
+        Quando pesquisar um Instituição o item de titulo 'Funda'
+        E clicar em editar no grid Instituição
     }
     page.uncheck('ctl00_conteudo_ctl00_flaAtivo')
   end
   
-  Quando("clicar em excluir um Tipo de Acao") do
+  Quando("clicar em excluir um Instituição") do
     steps %q{
-        Quando pesquisar um Tipo de Acao o item de titulo 'Visto'
-        E clicar em editar no grid Tipo de Acao
+        Quando pesquisar um Instituição o item de titulo 'Funda'
+        E clicar em editar no grid Instituição
     }
     @dicPadraoEdt = EdicaoDicionarioPadrao.new
     @dicPadraoEdt.btnExcluir.click
   end
   
-  Quando("editar no grid Tipo de Acao") do
+  Quando("editar no grid Instituição") do
     steps %q{
-        E clicar em editar no grid Tipo de Acao
+        E clicar em editar no grid Instituição
     }   
   end
