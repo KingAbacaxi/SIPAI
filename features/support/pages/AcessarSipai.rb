@@ -13,6 +13,7 @@ class AcessarSipai < SitePrism::Page
     element :tipoAnexoVistoria,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15622"]'
     element :tipoOrigemAcaoVistoria,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15611"]'
     element :tipoTipoAcaoVistoria,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15609"]'
+    element :tipoInstituicao,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15623"]'
 
     def moduloSipai 
         linkModulo.click
