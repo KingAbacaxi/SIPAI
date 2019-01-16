@@ -58,7 +58,7 @@ Quando pesquisar um BOI Caracteristica da Área pela flag 'Ativo/Inativo' com pa
 Então sistema deve exibir no Grid somente os itens com a flag É falso nao selecionada 
 
 Cenario: Verificar tela de Edicao do itens do dicionario de BOI Caracteristica da Área
-Quando pesquisar um BOI Caracteristica da Área o item de titulo 'Área'
+Quando pesquisar um BOI Caracteristica da Área o item de titulo 'Alagamento'
 E clicar em editar no grid BOI Caracteristica da Área
 Então sistema deve exibir tela de edicao com os campos preenchidos 
 E exibir o botao 'Excluir'

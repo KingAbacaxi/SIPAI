@@ -1,6 +1,6 @@
 #language: pt
 #utf-8
-@dicBoiCaracArea
+@dicBoiDeteccaoIncendio
 Funcionalidade: Verificar Dicionário do BOI Detecção de Incêndio
 
 

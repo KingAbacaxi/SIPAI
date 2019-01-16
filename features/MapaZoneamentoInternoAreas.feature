@@ -1,6 +1,6 @@
 #language: pt
 #utf-8
-@mapazoneamentoareas
+
 Funcionalidade: Verificar Mapa de zoneamento Interno de Áreas da área protegida
 
 #UserStory- 43764-UserStory-Incluir Zoneamento Interno de Áreas da Área Protegida
