@@ -73,7 +73,7 @@ Cenario: Verificar preenchimento de um novo instrumento normativo
 
 Quando clicar em Incluir um novo instrumento normativo
 E preencher os campos Data Documento '1600102019' - Data Publicação '2000102019' - Finalidade - 'Normativo Automatizado' - Tipo de Documento 'Tipo Documento Automatizado' - Número - '125' - Instrumento de Publicação - 'INSTRUMENTO PUBLICITARIO Automatizado' - Área DOC 'Não faço idéia'
-E insluir arquivo de Instrumentos normativos 
+E incluir arquivo de Instrumentos normativos 
 E clicar em finalizar
 Então sistema deve gravar os dados de instrumento normativo
 
