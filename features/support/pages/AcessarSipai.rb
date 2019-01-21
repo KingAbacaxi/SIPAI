@@ -10,7 +10,7 @@ class AcessarSipai < SitePrism::Page
     
     element :vistoriaAmbiental, 'a[href="/sigam-sipai-test/Default.aspx?idPagina=15612"]'
     element :vistoriaAmbientalMenu, 'a[href="/sigam-sipai-test/Default.aspx?idPagina=15618"]'
-    element :boiIncendioFlorestalMenu,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15617"]'
+    element :boiIncendioFlorestalMenu,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15326"]'
     #vistoriaMenuDicionario
     element :metodoPesca, 'a[href="/sigam-sipai-test/Default.aspx?idPagina=15608"]'
     element :tipoVeiculoVistoria,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15607"]'

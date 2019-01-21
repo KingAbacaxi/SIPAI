@@ -16,7 +16,7 @@ Dado que tenha acessado o SIGAM
 E logado com usuario 'gtiAdm' senha 'a'
 Quando clicar entrar no modulo do SIPAI
 E acessar Incêndios Florestais
-E clicar em Editar um Boi 
+E criar um BOI novo 
 E acessar a Aba Espeficicação do BOI
 Então Sistema deve apresentar os campos Detecção de Incendio - Provável Causa do Incendio - Provável Causador - Caracteristica da Ocorrencia - Observações
 E os botãos de Atualizar - Ajuda
@@ -27,5 +27,5 @@ Quando estiver na edição do Boi
 E acessar a Aba Espeficicação do BOI
 E selecionar nso campos Detecção de Incendio 'Vistoria Mata' - Provável Causa do Incendio 'Desconhecida' - Provável Causador 'Outros'
 E preencher os campos de especificação Caracteristica da Ocorrencia 'Fogo '- Observações 'Muito fogo'
-E clicar em Atualizar
+E clicar em Atualizar boi
 Então sistema deve exibir a msg 'Dados salvos com sucesso!'
