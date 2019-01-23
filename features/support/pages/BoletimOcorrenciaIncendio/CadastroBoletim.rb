@@ -29,6 +29,7 @@ class CadastroBoletim < SitePrism::Page
     element :cabOrgaoGestor,'#ctl00_conteudo_ctl00_lblOrgGestorUC'
     element :cabDTCadastro,'#ctl00_conteudo_ctl00_lblDtCadastro'
     element :cabDTDeteccao,'#ctl00_conteudo_ctl00_lblDtDeteccao'
+    element :retornarBtnCab,'#ctl00_conteudo_ctl00_btnRetornaCab'
      
     #camposAtualizarLabels
 

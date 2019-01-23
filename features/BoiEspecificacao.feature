@@ -25,7 +25,7 @@ Cenario: Verificar Preenchimento dos campos de Especificação
 
 Quando estiver na edição do Boi 
 E acessar a Aba Espeficicação do BOI
-E selecionar nso campos Detecção de Incendio 'Vistoria Mata' - Provável Causa do Incendio 'Desconhecida' - Provável Causador 'Outros'
-E preencher os campos de especificação Caracteristica da Ocorrencia 'Fogo '- Observações 'Muito fogo'
-E clicar em Atualizar boi
-Então sistema deve exibir a msg 'Dados salvos com sucesso!'
+E selecionar nso campos Detecção de Incendio 'Vistorias Mata' - Provável Causa do Incendio 'Desconhecida' - Provável Causador 'Outros'
+E preencher os campos de especificação Caracteristica da Ocorrencia Fogo rateiro - Observações 'Muito fogo'
+E clicar em Atualizar especificação
+Então sistema deve exibir a msg 'Dados salvos com sucesso'
