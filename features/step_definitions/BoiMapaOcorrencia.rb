@@ -56,39 +56,86 @@ nis= @cadBoi.cabNis.text
     @MapaOcorrencia.desenhar
   end
   
-  Quando("preencher o atributo {string} do mapa do boi") do |valor|
-    
-    @MapaOcorrencia =  MapaOcorrencia.new
-    page.driver.browser.switch_to.default_content
-    @MapaOcorrenciapage.atributo.set valor
-    @MapaOcorrenciapage.btnSalvarAtributo.click
-    sleep 3
-  end
-  
-  Quando("clicar em Salvar atributo do boi") do
-    pending # Write code here that turns the phrase above into concrete actions
+  Quando("preencher o atributo {string} do mapa do boi Salvando o atributo do boi") do |valor|
+      within_frame(find('iframe[src="/sigam-sipai-test/SIPAI/Mapa/Info/OcorrenciaTipoInfo.aspx?idPagina=15326"]')) do
+       find('#descObservacao').set valor
+       find('#cmdAtualizaBO').click
+       end
+    sleep 2
   end
   
   Quando("clicar em sair do mapa") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @MapaOcorrencia =  MapaOcorrencia.new
+    @MapaOcorrencia.fecharMapa.click
   end
   
   Então("sistema deve exibir alerta de mapa do boi salvo") do
-    pending # Write code here that turns the phrase above into concrete actions
+    page.accept_alert
   end
   
   Então("atualizar dados do grid do Mapa do BOI") do
-    pending # Write code here that turns the phrase above into concrete actions
+    valor =page.all(:css,'#ctl00_conteudo_ctl00_ContainerBOI_TabMapaOcorrencia_gvMapaBoi tr')[0].text
+    puts valor
+    valor =page.all(:css,'#ctl00_conteudo_ctl00_ContainerBOI_TabMapaOcorrencia_gvMapaBoi tr')[1].text
+    puts valor
   end
   
   Quando("clicar em excluir mapa da ocorrencia") do
-    pending # Write code here that turns the phrase above into concrete actions
+    steps %q{
+      Dado que tenha acessado o SIGAM
+      E logado com usuario 'gtiAdm' senha 'a'
+      Quando clicar entrar no modulo do SIPAI
+      E acessar Incêndios Florestais
+  }
+  @dicPadrao = DicionarioPadrao.new
+  @dicPadrao.pesquisar('NIS','Igual a',nis)
+  @dicPadrao.btnAdicionarPesquisa.click
+  @dicPadrao.btnPesquisa.click
+  @ModuloBoi = ModuloBoi.new
+  @ModuloBoi.editarBoi(0)
+
+  steps %q{
+    E acessar aba Mapa
+  }
+    @ModuloMapaBoletim = ModuloMapaBoletim.new
+    @ModuloMapaBoletim.btnExcluirMapas.click
   end
   
   Quando("confirmar o alerta de excluir") do
-    pending # Write code here that turns the phrase above into concrete actions
+    page.accept_alert
   end
   
   Então("o sistema deve atualizar o grid zerando os dados do mapa do boi") do
-    pending # Write code here that turns the phrase above into concrete actions
+    valor =page.all(:css,'#ctl00_conteudo_ctl00_ContainerBOI_TabMapaOcorrencia_gvMapaBoi tr')[0].text
+    puts valor
+    valor =page.all(:css,'#ctl00_conteudo_ctl00_ContainerBOI_TabMapaOcorrencia_gvMapaBoi tr')[1].text
+    puts valor
+  end
+  
+  Quando("incluir shapefile do BOI") do
+    
+    attach_file('ctl00$conteudo$ctl00$ContainerBOI$TabMapaOcorrencia$fuShape',File.absolute_path("features//support//Anexos//anexoBoi.zip"))
+    
+  end
+  
+  Quando("clicar em Importar shapefile do boi") do
+    @MapaOcorrencia =  MapaOcorrencia.new
+    
+    @MapaOcorrencia.importarShape.click
+    
+  end
+  
+  Então("sistema deve exibir poligono no mapa do BOI") do
+    assert_text('Importação concluída com sucesso')
+    tirar_foto('Tela_importacao_shape_boi', 'passou')
+    @cadBoi = CadastroBoletim.new
+    @cadBoi.retornarBtnCab.click
+    @dicPadrao = DicionarioPadrao.new
+    @dicPadrao.pesquisar('NIS','Igual a',nis)
+    @dicPadrao.btnAdicionarPesquisa.click
+    @dicPadrao.btnPesquisa.click
+    @ModuloBoi = ModuloBoi.new
+    @ModuloBoi.editarBoi(0)
+    @cadBoi.excluir.click
+    page.accept_alert
   end

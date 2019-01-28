@@ -1,9 +1,11 @@
 class MapaOcorrencia < SitePrism::Page
     element :formaDesenho ,'div[title="Desenhar forma"]'
     element :fecharMapaZona,'a[id="bntFechar"]'
-    element :atributo,'#descObservacao'
+    element :atributoObs,'#descObservacao'
     element :btnSalvarAtributo,'#cmdAtualizaBO'
-
+    element :formAtributo , 'iframe[src="/sigam-sipai-test/SIPAI/Mapa/Info/OcorrenciaTipoInfo.aspx?idPagina=15326"]'
+    element :fecharMapa, '#ctl00_conteudo_ctl00_ContainerBOI_TabMapaOcorrencia_btnRetornaMapa'
+    element :importarShape,'#ctl00_conteudo_ctl00_ContainerBOI_TabMapaOcorrencia_btnImpArquivo'
     def desenhar
         
         page.driver.browser.switch_to.default_content
@@ -21,9 +23,5 @@ class MapaOcorrencia < SitePrism::Page
 
     end
 
-    def atributo (valor)
-        page.driver.browser.switch_to.default_content
-        atributo.set valor
-        btnSalvarAtributo.click
-    end
+    
 end
