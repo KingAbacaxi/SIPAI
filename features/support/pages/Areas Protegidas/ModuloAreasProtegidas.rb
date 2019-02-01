@@ -1,13 +1,19 @@
 class ModuloAreasProtegidas < SitePrism::Page
-
+    element :tituloModulo,'#ctl00_conteudo_ctl00_TituloModulo_hypTitulo'
     element :btnPesquisa,'a[id="ctl00_conteudo_ctl00_cmdPesq"]'
+    element :btnExcel,'#ctl00_conteudo_ctl00_cmdExcel'
+    element :listaAltura,'#ctl00_conteudo_ctl00_ddlAltura'
     #filtro de pesquisa
     element :filtro,'select[id="ctl00_conteudo_ctl00_SqlWhere_fields"]'
     element :operador,'select[id="ctl00_conteudo_ctl00_SqlWhere_operators"]'
     element :parametro,'input[id="onetext_1"]'
-    element :textoPesquisa,'input[id"onetext_1"]'
+    element :textoPesquisa,'#onetext_1',match: :first
     element :btnAdicionar,'input[value="Adiciona"]'
+    
+    element :gridColunas,'#ctl00_conteudo_ctl00_gvConsulta tr',match: :prefer_exact
     #menu
+
+
     element :acessarMapa,'a[id="__tab_ctl00_conteudo_TabNavegacao_TabMapa"]'
 
     def pesquisaFiltro(filtroPesq,operadorPesq,parametroPesq)

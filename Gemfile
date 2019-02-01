@@ -14,6 +14,10 @@ gem 'rubyXL'
 gem 'site_prism', '2.12'
 gem 'chromedriver-helper'
 gem 'rails'
+gem 'capybara_table'
+gem 'pg'
+gem 'sqlite3'
+gem 'tiny_tds'
 
 
 

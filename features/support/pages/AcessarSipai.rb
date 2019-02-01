@@ -2,8 +2,8 @@ class AcessarSipai < SitePrism::Page
     element :linkModulo,'a[href="Default.aspx?idPagina=15303"]'
     #barra de menu
     element :boi,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15326"]'
-    element :areasProtegidas,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15601"]'
-    element :dicionarioUC , 'a[href="/sigam-sipai-test/Default.aspx?idPagina=15327"]'
+    element :areasProtegidas,:link,'Áreas Protegidas',match: :first
+    element :dicionarioUC ,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15327"]'
     element :nomeModulo,'#ctl00_lblNomPortal'
     element :grupoUC,'a[href="/sigam-sipai-test/Default.aspx?idPagina=15602"]'
     

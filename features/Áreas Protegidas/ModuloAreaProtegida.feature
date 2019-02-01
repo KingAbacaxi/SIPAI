@@ -41,3 +41,14 @@ E preencher os campos Grupo 'Área Protegida' - Categoria 'Parque Ecológico' - 
 E clicar em Atualizar
 Então sistema deve exibir a msg 'Dados atualizado com sucesso'
 
+Cenario: Verificar Exclusão de uma área protegida mas continuação como Unidade
+
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E clicar entrar no modulo do SIPAI
+E acessar o Menu Área Protegida
+Quando pesquisar Área protegida pela sigla 'EEEDUAMORIMUC'
+E acessar edição da área protegida
+E clicar em excluir área protegida
+Então sistema deve desvincular a especialização de unidade 
+Mas deve permaner a Unidade ativa 
