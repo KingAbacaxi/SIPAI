@@ -47,11 +47,12 @@ Quando("acessar o Menu Área Protegida") do
   end
   
   Dado("ter clicado na inclusão de uma Unidade") do
-    
+    @unidade = Unidade.new
+    @unidade.btnAdd.click
   end
   
   Dado("ter preenchido os campos Sigla {string} - Nome da Unidade {string} - Órgão {string} - Município {string} - Responsável {string} - Unidade Superior {string}") do |string, string2, string3, string4, string5, string6|
-    pending # Write code here that turns the phrase above into concrete actions
+    
   end
   
   Dado("ter clicado em Finalizar") do
