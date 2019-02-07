@@ -83,6 +83,3 @@ Então sistema deve exibir tela de ajuda
 Cenario: Verificar na Edição de uma vistoria o cabeçalho os dados
 Quando editar uma vistoria
 Então o cabeçalho e os demais campos devem está preenchidos automaticamente
-
-
-
