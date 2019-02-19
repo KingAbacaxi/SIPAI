@@ -1,0 +1,19 @@
+
+[1mFrom:[0m C:/Users/esamorim/Documents/GitHub/sipai/features/support/pages/Unidade.rb @ line 32 Unidade#gerarUnidadeComCamposObrigatorios:
+
+    [1;34m21[0m: [32mdef[0m [1;34mgerarUnidadeComCamposObrigatorios[0m(siglaUnidade,nomUnidade,orgaoUnidade,municipioUnidade,responsavelUnidade,unidadeSuperiorUnidade)
+    [1;34m22[0m:     sigla.set siglaUnidade
+    [1;34m23[0m:     nomeUnidade.set nomUnidade
+    [1;34m24[0m:     orgao.select orgaoUnidade
+    [1;34m25[0m:     municipio.set  municipioUnidade
+    [1;34m26[0m:     sleep [1;34m2[0m
+    [1;34m27[0m: 
+    [1;34m28[0m:     responsavel.set responsavelUnidade
+    [1;34m29[0m:     sleep [1;34m2[0m
+    [1;34m30[0m:     
+    [1;34m31[0m:     dropdownUnidadeSperior.click
+ => [1;34m32[0m:     binding.pry
+    [1;34m33[0m:     listatemMunicipio[[1;34m0[0m].click
+    [1;34m34[0m:     sleep [1;34m2[0m
+    [1;34m35[0m: [32mend[0m
+

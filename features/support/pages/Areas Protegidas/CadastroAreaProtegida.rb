@@ -1,4 +1,8 @@
 class CadastroAreaProtegida < SitePrism::Page
+
+    element :nisCadastroUC, ''
+    element :btnBuscarNisUC,''
+
     element :abaCadastroUC,'#__tab_ctl00_conteudo_TabNavegacao_TBCadastro'
 
     element :nisUC,'#ctl00_conteudo_TabNavegacao_TBCadastro_ucCadastro_lblNisUnidade'

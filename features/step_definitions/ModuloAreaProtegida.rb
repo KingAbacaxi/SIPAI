@@ -1,3 +1,4 @@
+nisUnidade = ''
 Quando("acessar o Menu Área Protegida") do
    @sipai = AcessarSipai.new
    @sipai.areasProtegidas.click
@@ -43,7 +44,7 @@ Quando("acessar o Menu Área Protegida") do
   
   Dado("ter clicado em Unidade") do
     @hs= HomeSigam.new
-    @hs.subMenuUnidade.click
+    @hs.subMenuUnidade[1].click
   end
   
   Dado("ter clicado na inclusão de uma Unidade") do
@@ -53,56 +54,95 @@ Quando("acessar o Menu Área Protegida") do
   
   Dado("ter preenchido os campos Sigla {string} - Nome da Unidade {string} - Órgão {string} - Município {string} - Responsável {string} - Unidade Superior {string}") do |string, string2, string3, string4, string5, string6|
     
+    @unidade = Unidade.new
+    @unidade.gerarUnidadeComCamposObrigatorios(string, string2, string3, string4, string5, string6)
+    
   end
   
-  Dado("ter clicado em Finalizar") do
-    pending # Write code here that turns the phrase above into concrete actions
-  end
+
   
   Dado("pesquisar Pela sigla {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+    @dicPadraoIni = DicionarioPadrao.new
+    @dicPadraoIni.pesquisar('Sigla','Contém',string)
+    @dicPadraoIni.adicionarPesquisaBtn
+    @dicPadraoIni.pesquisarBtn
+    
   end
   
   Dado("clicar em editar Unidade") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @unidade = Unidade.new
+    
+    @unidade.editarUnidade[0].click
   end
   
   Dado("pegar o NIS da unidade adicionada") do
-    pending # Write code here that turns the phrase above into concrete actions
+     @unidade = Unidade.new
+     nisUnidade = @unidade.nis.text
+     puts nisUnidade
   end
   
   Quando("voltar para tela inicial do SIGAM") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @hs= HomeSigam.new
+    @hs.home.click
   end
   
   Quando("clicar em Adicionar Área Protegida") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @ap = ModuloAreasProtegidas.new
+    @ap.btnAdicionar.click
   end
   
   Quando("buscar pelo NIS da Unidade") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @cap = CadastroAreaProtegida.new
+    @cap.nisCadastroUC.set nisUnidade
+    @cap.btnBuscarNisUC.click
   end
   
-  Quando("preencher os campos Grupo {string} - Categoria {string} - Área {string} - código {string}") do |string, string2, string3, string4|
-    pending # Write code here that turns the phrase above into concrete actions
+  Quando("preencher os campos Grupo {string} - Categoria {string} - Área {string} - código {string}") do |grupoUC, categoriaUC, nomeUC, codigoUC|
+    @cap = CadastroAreaProtegida.new
+    @cap.grupo.select grupoUC
+    @cap.categoria.select categoriaUC
+    @cap.areaProtegida.set nomeUC
+    @cap.codigo.set codigoUC
   end
   
-  Quando("pesquisar Área protegida pela sigla {string}") do |string|
-    pending # Write code here that turns the phrase above into concrete actions
+  Quando("clicar em Atualizar cadastro da área protegida") do
+    @cap = CadastroAreaProtegida.new
+    @cap.btnAtualizar.click
+  end
+
+  Quando("pesquisar Área protegida pela sigla {string}") do |siglaUnidade|
+    @dicPadraoIni = DicionarioPadrao.new
+    @dicPadraoIni.pesquisar('Sigla','Contém',siglaUnidade)
+    @dicPadraoIni.adicionarPesquisaBtn
+    @dicPadraoIni.pesquisarBtn
   end
   
   Quando("acessar edição da área protegida") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @unidade = Unidade.new
+    @unidade.editarUnidade[0].click
   end
   
   Quando("clicar em excluir área protegida") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @cap = CadastroAreaProtegida.new
+    @cap.btnExcluir.click
+    page.accept_alert
   end
   
-  Então("sistema deve desvincular a especialização de unidade") do
-    pending # Write code here that turns the phrase above into concrete actions
+  Então("sistema deve desvincular a especialização de unidade") do |siglaUnidade|
+    @dicPadraoIni = DicionarioPadrao.new
+    @dicPadraoIni.pesquisar('Sigla','Contém',siglaUnidade)
+    @dicPadraoIni.adicionarPesquisaBtn
+    @dicPadraoIni.pesquisarBtn
   end
   
   Então("deve permaner a Unidade ativa") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @hs = HomeSigam.new
+    @hs.logoInicial.click
+    steps %Q{
+      E ter acessado o menu Portal
+      E ter acessado o menu Tabelas Organizacionais
+      E ter clicado em Unidade
+      E pesquisar Pela sigla 'EEEDUAMORIMUC'
+      E clicar em editar Unidade
+    }
   end
