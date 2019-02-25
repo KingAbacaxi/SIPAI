@@ -18,7 +18,7 @@ E o componente de pesquisa
 E os botões de Adicionar - Pesquisar - Excel - Altura
 E o Grid com as colunas Editar - Ativa - Sigla - Área Protegida - Grupo - órgão Gestor
 
-@moduloAreaProtegida2
+
 Cenario: Verificar Criação de uma área Protegida
 
 Dado que tenha acessado o SIGAM
@@ -38,7 +38,7 @@ E clicar em Adicionar Área Protegida
 E buscar pelo NIS da Unidade
 E preencher os campos Grupo 'Área Protegida' - Categoria 'Parque Ecológico' - Área '2101' - código 'EEEDUAMORIMUC'
 E clicar em Atualizar cadastro da área protegida
-Então sistema deve exibir a msg 'Dados atualizado com sucesso'
+Então sistema deve exibir a msg 'Dados atualizado com sucesso' no cadastro da área protegida
 
 Cenario: Verificar Exclusão de uma área protegida mas continuação como Unidade
 

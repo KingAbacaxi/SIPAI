@@ -97,17 +97,21 @@ Quando("acessar o Menu Área Protegida") do
     @cap.btnBuscarNisUC.click
   end
   
-  Quando("preencher os campos Grupo {string} - Categoria {string} - Área {string} - código {string}") do |grupoUC, categoriaUC, nomeUC, codigoUC|
+  Quando("preencher os campos Grupo {string} - Categoria {string} - Área {string} - código {string}") do |grupoUC, categoriaUC, areaUC, codigoUC|
     @cap = CadastroAreaProtegida.new
     @cap.grupo.select grupoUC
     @cap.categoria.select categoriaUC
-    @cap.areaProtegida.set nomeUC
+    @cap.area.set areaUC
     @cap.codigo.set codigoUC
   end
   
   Quando("clicar em Atualizar cadastro da área protegida") do
     @cap = CadastroAreaProtegida.new
     @cap.btnAtualizar.click
+  end
+
+  Então("sistema deve exibir a msg {string} no cadastro da área protegida") do |msg|
+    assert_text(msg)
   end
 
   Quando("pesquisar Área protegida pela sigla {string}") do |siglaUnidade|
@@ -128,11 +132,12 @@ Quando("acessar o Menu Área Protegida") do
     page.accept_alert
   end
   
-  Então("sistema deve desvincular a especialização de unidade") do |siglaUnidade|
+  Então("sistema deve desvincular a especialização de unidade {string}") do |siglaUnidade|
     @dicPadraoIni = DicionarioPadrao.new
     @dicPadraoIni.pesquisar('Sigla','Contém',siglaUnidade)
     @dicPadraoIni.adicionarPesquisaBtn
     @dicPadraoIni.pesquisarBtn
+    assert_text('Nenhuma Unidade de Conservação Selecionada')
   end
   
   Então("deve permaner a Unidade ativa") do

@@ -8,7 +8,7 @@ class ModuloAreasProtegidas < SitePrism::Page
     element :operador,'select[id="ctl00_conteudo_ctl00_SqlWhere_operators"]'
     element :parametro,'input[id="onetext_1"]'
     element :textoPesquisa,'#onetext_1',match: :first
-    element :btnAdicionar,'input[value="Adiciona"]'
+    element :btnAdicionar,'#ctl00_conteudo_ctl00_cmdNovo'
     
     element :gridColunas,'#ctl00_conteudo_ctl00_gvConsulta tr',match: :prefer_exact
     #menu

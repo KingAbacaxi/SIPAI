@@ -1,7 +1,7 @@
 class CadastroAreaProtegida < SitePrism::Page
 
-    element :nisCadastroUC, ''
-    element :btnBuscarNisUC,''
+    element :nisCadastroUC, '#ctl00_conteudo_txtNIS'
+    element :btnBuscarNisUC,'#ctl00_conteudo_lblBuscaNIS'
 
     element :abaCadastroUC,'#__tab_ctl00_conteudo_TabNavegacao_TBCadastro'
 
