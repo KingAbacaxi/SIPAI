@@ -149,13 +149,7 @@ Quando("acessar o Dicionario Tipo de Veículo") do
     @dicPadraoEdt = EdicaoDicionarioPadrao.new
     @dicPadraoEdt.btnExcluir.click
   end
-  Quando("logar com usuario {string} senha {string} dento do modulo do sipai") do |usuario, senha|
-    visit 'http://homologacao-sigam.eastus2.cloudapp.azure.com/sigam-sipai-test/Default.aspx?idPagina=15303'
-   
-    @LoginSigam = LoginSigam.new
-   find('#ctl00_cmdLogin').click 
-    @LoginSigam.loginDados(usuario,senha)
-  end
+
   Quando("acessar SIPAI") do
     @AcessarSipai = AcessarSipai.new
     @AcessarSipai.moduloSipai
