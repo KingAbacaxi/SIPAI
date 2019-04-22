@@ -15,6 +15,8 @@ Funcionalidade: Verificar cadastro de Vistoria
 #PARA manter o controle e gerenciamento das ocorrências existentes, além de acompanhar RVAs já iniciados
 #anteriormente o preenchimento correto das informações
 
+#BDD ajustado 11/04/2019 por Renan Sano - mudança por conta da User 46470-Ajustar a Regra que Gera o Número do Relatório na Vistoria Ambiental
+
 Cenario: Verificar Tela inicial do cadastro de Vistoria
 Dado que tenha acessado o SIGAM
 E logado com usuario 'gtiAdm' senha 'a'
@@ -83,3 +85,8 @@ Então sistema deve exibir tela de ajuda
 Cenario: Verificar na Edição de uma vistoria o cabeçalho os dados
 Quando editar uma vistoria
 Então o cabeçalho e os demais campos devem está preenchidos automaticamente
+
+Cenário: Verificar inclusão no Grid após cadastro
+Quando preencher todos os campos obrigatórios
+E clicar em Finalizar
+Então o sistema apresenta os cadastro da coluna Número do Relatório na ordem da sequência gerada sequencialmente e zerada essa sequência e realizado uma nova sequência quando o ano é novo
