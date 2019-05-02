@@ -16,6 +16,7 @@ Funcionalidade: Verificar cadastro de Vistoria
 #anteriormente o preenchimento correto das informações
 
 #BDD ajustado 11/04/2019 por Renan Sano - mudança por conta da User 46470-Ajustar a Regra que Gera o Número do Relatório na Vistoria Ambiental
+#BDD ajustado 30/04/2019 por Bruno Spinelli - mudança por conta da User 46767-SIPAI-Incluir Mensagem Informativa para Registro de Ocorrências
 
 Cenario: Verificar Tela inicial do cadastro de Vistoria
 Dado que tenha acessado o SIGAM
@@ -90,3 +91,129 @@ Cenário: Verificar inclusão no Grid após cadastro
 Quando preencher todos os campos obrigatórios
 E clicar em Finalizar
 Então o sistema apresenta os cadastro da coluna Número do Relatório na ordem da sequência gerada sequencialmente e zerada essa sequência e realizado uma nova sequência quando o ano é novo
+
+#UserStory: 46767-SIPAI-Incluir Mensagem Informativa para Registro de Ocorrências
+#Sprint 13
+#25/04/2019
+
+#COMO técnico
+#QUERO que seja criado uma mensagem informativa para o campo “Registro de Ocorrência” no caso do usuário selecionar a opção “Não” na aba Identificação do Módulo Vistoria Ambiental
+#PARA que possa informar ao usuário caso exista uma ocorrência vinculada a mesma será excluída.
+
+Cenário: Criação de vistoria como registro de ocorrência
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Sim' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+Quando clicar em Finalizar
+Então o sistema deve criar a vistoria
+E habilitar a aba Ocorrências
+Mas o sistema não deve apresentar a mensagem sobre a aba ocorrência
+
+Cenário: Criação de vistoria que não é registro de ocorrência
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Não' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+Quando clicar em Finalizar
+Então o sistema deve criar a vistoria
+Mas o sistema não deve apresentar a mensagem sobre a aba ocorrência
+E o sistema não deve habilitar a aba ocorrência
+    
+Cenário: Atualização de vistoria como registro de ocorrência
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Não' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+E ter finalizado o cadastro da vistoria
+E ter clicado em editar vistoria
+E ter alterado o campo Registro de Ocorrências para "Sim"
+Quando clicar em Finalizar
+Então o sistema deve atualizar a vistoria
+E habilitar a aba Ocorrências
+Mas o sistema não deve apresentar a mensagem sobre a aba ocorrência
+    
+Cenário: Atualização de vistoria que deixa de ser registro de ocorrência
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Sim' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+E ter finalizado o cadastro da vistoria
+E ter clicado em editar vistoria
+E ter alterado o campo Registro de Ocorrências para "Não"
+Quando clicar em Finalizar
+Então o sistema deve apresentar a mensagem sobre a aba Ocorrências
+E a mensagem deve ter um botão "OK"
+E a mensagem deve ter um botão "Cancelar"
+    
+Cenário: Atualização de vistoria que deixa de ser registro e é confirmada pelo usuário
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Sim' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+E ter finalizado o cadastro da vistoria
+E ter clicado em editar vistoria
+E ter alterado o campo Registro de Ocorrências para "Não"
+E ter clicado em finalizar cadastro de vistoria
+Quando clicar em "OK" na mensagem de Aviso
+Então o sistema deve desabilitar a aba Ocorrências
+E excluir os dados da aba Ocorrências
+E o sistema deve atualizar a vistoria
+    
+Cenário: Atualização de vistoria que deixa de ser registro e é cancelada pelo usuário
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Sim' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+E ter finalizado o cadastro da vistoria
+E ter clicado em editar vistoria
+E ter alterado o campo Registro de Ocorrências para "Não"
+E ter clicado em finalizar cadastro de vistoria
+Quando clicar em "Cancelar" na mensagem de Aviso
+Então o sistema fecha a mensagem
+Mas o sistema não deve atualizar a vistoria
+E o sistema não deve desabilitar a aba Ocorrências
+E o sistema não deve excluir os dados da aba Ocorrências
+   
+Cenário: Atualização de vistoria que deixa de ser registro logo após sua criação
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Sim' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+E ter clicado em atualizar vistoria
+E ter alterado o campo Registro de Ocorrências para "Não"
+Quando clicar em Finalizar
+Então o sistema deve apresentar a mensagem sobre a aba Ocorrências
+E a mensagem deve ter um botão "OK"
+E a mensagem deve ter um botão "Cancelar"
+    
+Cenário: Usuário ter clicado em alterar o estado de registro porém ter alterádo ele de volta antes de salvar
+Dado que tenha acessado o SIGAM
+E logado com usuario 'gtiAdm' senha 'a'
+E está no modulo do SIPAI
+E dentro do modulo de vistoria
+E ter clicado em adicionar uma nova vistoria
+E ter preenchido os campos da vistoria - Área Protegida 'EE - Estação Ecológica Assis' - Data de Início da Ação - Hora de Início de Ação - Data de Término da Ação - Hora de Término da Ação - Origem da Ação 'Definição de medidas de reparação' - Registro de Ocorrências 'Sim' - Área Fiscalizada na Área Protegida 'Dentro' - Município 'Altair' - Endereço 'teste1' - Especificação do Local 'teste2' - Relatório de Fiscalização 'teste3' - Latitude '1' - Longitude '1'
+E ter finalizado o cadastro da vistoria
+E ter clicado em editar vistoria
+E ter alterado o campo Registro de Ocorrências para "Não"
+E ter alterado o campo Registro de Ocorrências para "Sim"
+Quando clicar em Finalizar
+Então o sistema deve atualizar a vistoria
+Mas o sistema não deve apresentar a mensagem sobre a aba ocorrência
+E o sistema não deve apagar as ocorrências
+
