@@ -14,6 +14,9 @@ Funcionalidade: Verificar Aba Equipe nas Vistorias Ambientais
 #COMO O técnico QUERO que seja possível incluir as informações da Equipe que participou da 
 #Vistoria Ambiental após cadastro 
 #PARA que seja possível detalhar o RVA, mantendo as informações mais consistentes
+
+#Feature modificada 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
+
 @verificarAbaEquipe
 Cenario: Verificar aba Equipe na vistoria ambiental
 
@@ -28,6 +31,9 @@ E deve conter o campo 'Número de participantes'
 E deve conter o botão de inclusão para orgãos com participantes
 E deve conter o campo de listagem 'Integrantes da Equipe da Área Protegida'
 E deve conter o botão de inclução para participantes da área protegida
+E deve conter o botão de Finalizar
+E deve conter o botão de Ajuda
+
 @verificarGridOrgao
 Cenario: Verificar Grid para Orgãos e Participantes da equipe de vistoria
 
@@ -69,3 +75,17 @@ E acessar o menu de vistoria ambiental
 E estiver na aba equipe dentro de uma vistoria ambiental
 E clicar no combo box de Órgãos e Instituições envolvidas
 Então sistema não deve apresentar o item inativo na listagem
+
+Cenário: Verificar botão Finalizar
+Dado que tenha acessado o SIGAM
+E logado no sistema com usuario 'gtiAdm' senha 'a'
+E acessado o modulo SIPAI
+E ter entrado no menu de Vistória Ambiental
+E clicar em editar uma Vistoria
+E clicar na aba Equipe
+E inserir o campo 'Número de participantes'
+E clicar no botão de inclusão para orgãos com participantes
+E inserir campo de listagem 'Integrantes da Equipe da Área Protegida'
+E clicar no botão inclução para participantes da área protegida
+Quando clicar no botão de Finalizar
+Então o sistema volta para o Grid de Vistorias

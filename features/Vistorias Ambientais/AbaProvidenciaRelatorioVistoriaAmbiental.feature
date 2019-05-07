@@ -18,16 +18,17 @@ Funcionalidade: Criar Aba Providência no Relatório de Vistoria Ambiental
 #QUERO  informar a Providência na Vistoria Ambiental 
 #PARA detalhar melhor a Providência no Relatório da Vistoria Ambiental.
 
+#Feature modificada 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
 
 Cenario: Conferir liberação da aba Providencias
-Dado que tenha acessado o SIGAM
-E logado com usuario 'gtiAdm' senha 'a'
-E clicar entrar no modulo do SIPAI
-E clicar em Vistoria Ambiental
-E clicar em Editar registro
-Quando selecionar a opção 'Definição de medidas de reparação' no campo Origem da Ação
-E clicar em Atualizar
-Então o sistema apresenta a nova aba Providencias
+    Dado que tenha acessado o SIGAM
+    E logado com usuario 'gtiAdm' senha 'a'
+    E clicar entrar no modulo do SIPAI
+    E clicar em Vistoria Ambiental
+    E clicar em Editar registro
+    Quando selecionar a opção 'Definição de medidas de reparação' no campo Origem da Ação
+    E clicar em Atualizar
+    Então o sistema apresenta a nova aba Providencias
 
 Cenario: Conferir aba Providencias
     Quando selecionar a opção 'Definição de medidas de reparação' no campo Origem da Ação
@@ -76,3 +77,10 @@ Cenario: Conferir alteração para diferente de "Definição de medidas de repar
     E selecionar Sim
     Então o sistema apaga o registo da aba Providencia
     E esconde a aba Providencia
+
+Cenario: Conferir botão Finalizar
+    E selecionar a opção 'Definição de medidas de reparação' no campo Origem da Ação
+    E clicar em Atualizar
+    E clicar na aba Providencias
+    Quando clicar em Finalizar
+    Então o sistema volta para o Grid de Vistorias

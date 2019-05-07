@@ -17,6 +17,7 @@ Funcionalidade: Criar sub-aba Denúncia dentro da aba Ocorrências
 #QUERO gerar uma denúncia a partir da Ocorrência Ambiental
 #PARA que seja associado a Ocorrência
 
+#Feature modificada dia 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
 
 Cenario: Verificar sub aba Denúncia na Ocorrência sem Acia
     Dado que tenha acessado o sigam
@@ -53,3 +54,15 @@ Cenario: Conferir tentativa de inclusão de Denúncia quando nãp preenchidos ca
     E clicar na aba Denúncia
     Quando clicar em Gerar Denuncia 
     Então o sistema apresenta a mensagem “Os seguintes campos precisam ser preenchidos: Especificação do Local e Descrição da ocorrência" 
+
+Cenario: Conferir botão Finalizar
+    Dado que tenha acessado o sigam
+    E logado no sistema com usuario 'gtiAdm' e senha 'a'
+    E entrado no módulo do SIPAI
+    E no menu Vistoria
+    E ter criado uma vistoria ambiental para uma Área Protegida que o Órgão gestor seja a Fundação Florestal
+    E acessar aba Ocorrencias
+    E criar uma ocorrência do tipo ambiental
+    E clicar na aba Denúncia
+    Quando clicar em Finalizar
+    Então o sistema volta para o Grid de Vistorias

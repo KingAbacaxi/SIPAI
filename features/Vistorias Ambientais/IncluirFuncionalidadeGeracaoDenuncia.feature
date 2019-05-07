@@ -18,6 +18,7 @@ Funcionalidade: Incluir funcionalidades na geração de Denúncia da Vistoria Am
 #QUERO incluir algumas funcionalidades na interface de geração de Denúncia
 #PARA que seja possível remover registro, incluir providência automaticamente e arquivos na Denúncia aberta.
 
+#BDD ajustado 11/04/2019 por Renan Sano - mudança por conta da User 46770-SIPAI-Incluir o Anexo da Vistoria Ambiental dentro do Processos
 
 Cenario: Conferir geração automatica providencia
     Dado que tenha acessado o sigam
@@ -98,3 +99,19 @@ Cenario: Conferir Aba de Anexos migrado automaticamente
     E selecionar a aba Anexos 
     Então o sistema apresenta todos arquivos da Ocorrencia à Denuncia
     E também é apresentado o PDF do Acia gerado na ocorrencia 
+
+Cenário: conferir inclusão do extrato da Vistoria Ambiental para aba Anexos do Processo SIGAM quando tem AIA
+    Dado que tenha acessado o sigam
+    E logado no sistema com usuario 'gtiAdm' e senha 'a'
+    E entrado no módulo do SIPAI
+    E no menu Vistoria
+    E ter criado uma vistoria ambiental para uma Área Protegida que o Órgão gestor seja a Fundação Florestal
+    E criar uma ocorrência
+    E atualizar dados da aba Identificação inclusive Número AIA ou Número AIA-e
+    Quando clicar em Finalizar da aba Identificação
+    E clicar em SIGAM
+    E clicar em Processos
+    E pesquisar pelo numero do AIA 
+    E Editar o Processo em questão
+    E selecionar a aba Anexos
+    Então o sistema apresenta o GRID contendo o pdf 

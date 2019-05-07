@@ -14,6 +14,8 @@ Funcionalidade: Verificar aba Veículos Abordados de Especificação
 #COMO agente de fiscalização ambiental QUERO informar os veículos abordados na Área Protegida
 #PARA detalhar melhor o Relatório de Vistoria Ambiental
 
+#Feature modificada 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
+
 Cenario: Verificar aba Veículos Abordados
 
 Dado que tenha acessado o sigam
@@ -26,6 +28,7 @@ Quando clicar na subAba Veículos Abordados
 Então sistema deve apresentar interface 
 E deve conte o botão de incluir
 E deve conter o botão de Ajuda
+E deve conter o botão de Finalizar
 E incialmente deve conter a mensagem 'Nenhum Veículo Abordado!'
 
 Cenario: Verificar tela de inclusão de um novo veículo Abordado
