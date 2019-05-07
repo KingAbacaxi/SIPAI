@@ -15,6 +15,8 @@ Funcionalidade: Verificar aba Forma de Atuação de Especificação
 #PARA poder incluir as informações de Forma de Atuação básico do RVA, bem como acessar as
 #demais informações relacionadas à sua Especificação
 
+#Feature atualizada 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
+
 Cenario: Verificar aba Especificações
 
 Dado que tenhar acessado o SIGAM
@@ -31,7 +33,9 @@ Cenario: Verificar campos da aba Forma de Atuação
 Quando estiver na aba Forma de Atuação
 Então sistema deve conter os campos 'Tipo de Ação' - 'Unidade' - 'Quantidade'
 E o campo Unidade deve conter as opções 'Km percorridos' - 'Horas'
-E o botão incluir e Ajuda
+E o botão incluir 
+E o botão Ajuda
+E o botão Finalizar
 
 Cenario: Verificar campo de seleção Tipo de Ação
 

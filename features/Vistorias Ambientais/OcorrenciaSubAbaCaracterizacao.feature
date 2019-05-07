@@ -15,8 +15,10 @@ Funcionalidade: Verificar sub-aba Caracterização da Area dentro da Ocorrência
 #QUERO informar a Caracterização da Área na Vistoria Ambiental
 #PARA detalhar melhor a Caracterização da Área na Ocorrência “Ambiental” ou “Não Ambiental”.
 
+#Feature modificada 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
 
-Cenario: Verificar tela de Especificação para ocorrência com ACIA
+
+Cenario: Verificar apresentação da tela de Especificação para ocorrência com ACIA
     Dado que tenha acessado o sigam
     E logado no sistema com usuario 'gtiAdm' e senha 'a'
     E entrado no módulo do SIPAI
@@ -30,7 +32,7 @@ Cenario: Verificar tela de Especificação para ocorrência com ACIA
     E clicar em Atualizar
     E preencher os campos Classe ocorrencia '' - Tipo ocorrencia '' - Área ocorrencia '' - Especificacao local ocorrencia '' - latitude '' - Longitude '' - Descricao ocorrencia ''
     Quando Clicar em Atualizar
-    Então o sistema apresenta apresenta as abas Identificação - Especificação - Caracterização da Área - Apreensões - Providências - Envolvidos - Mapa - Anexos - Denúncia
+    Então o sistema apresenta as abas Identificação - Especificação - Caracterização da Área - Apreensões - Providências - Envolvidos - Mapa - Anexos - Denúncia
 
 Cenario: Verificar tela de Especificação para ocorrência sem ACIA
     Dado que tenha acessado o sigam
@@ -185,3 +187,7 @@ Cenario: Conferir apresentação dos campos vindo do dicionário Tipo de Vegeta�
     E selecionar a aba Caracterização da área
     Quando selecionar as opções de Tipo de Vegetação
     Então o sistema apresenta os dados cadastrados no dicionário anteriormente
+
+Cenário: Verificar botão Finalizar
+    Quando clicar no botão Finalizar
+    Então o sistema volta para o Grid de Vistorias

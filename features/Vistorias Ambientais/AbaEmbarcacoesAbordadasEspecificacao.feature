@@ -14,6 +14,8 @@ Funcionalidade: Verificar aba Embarcações Abordadas na aba Especificações
 #COMO agente de fiscalização ambiental QUERO informar as Embarcações Abordadas na Área Protegida
 #PARA detalhar melhor o Relatório de Vistoria Ambiental.
 
+#Feature modificada dia 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
+
 Cenario: Verificar aba embarcações Abordados
 
 Dado que tenha acessado o sigam
@@ -26,6 +28,7 @@ Quando clicar na subAba Embarcações Abordados
 Então sistema deve apresentar interface 
 E deve conte o botão de incluir
 E deve conter o botão de Ajuda
+E deve conter o botão de Finalizar 
 E incialmente deve conter a mensagem 'Nenhuma Embarcação Abordada!'
 
 Cenario: Verificar tela de inclusão de um nova Embarcação Abordada

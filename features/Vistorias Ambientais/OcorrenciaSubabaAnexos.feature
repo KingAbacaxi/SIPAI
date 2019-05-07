@@ -5,7 +5,6 @@ Funcionalidade: Verificar sua sub-aba Anexos dentro da Ocorrência da Vistoria
 
 #UserStory- 44199-SIPAI-Criar sub-aba Anexos
 
-
 #Sprint 10
 #SIPAI
 #Eduardo Amorim
@@ -15,6 +14,7 @@ Funcionalidade: Verificar sua sub-aba Anexos dentro da Ocorrência da Vistoria
 #COMO técnico QUERO associar anexos à Ocorrência 
 #PARA que os documentos relacionados à Ocorrências com ACIA e/ou Ocorrência sem ACIA possam ser guardados e acessados posteriormente
 
+#Feature modificada 26/04/2019 - Renan Sano Ferrari - User 46768 - Incluir Botão Finalizar para Todas as Abas da Vistoria Ambiental
 
 Cenario: Verificar sub aba Anexos na Ocorrência sem Acia
     Dado que tenha acessado o sigam
@@ -26,6 +26,7 @@ Cenario: Verificar sub aba Anexos na Ocorrência sem Acia
     E clicar na aba Apreensões
     Então sistema deve exibir tela de Anexos com a msg 'Nenhuma Documento ou Arquivo Anexado'
     E o botão de Adicionar Anexos
+    E o botão Finalizar 
 
 Cenario: Verificar aba de inclusão de uma nova Anexos
     Dado que tenha acessado o sigam
@@ -227,3 +228,15 @@ Cenario: Verificar excluir itens apreendidos na Ocorrência com Acia
     E clicar em Finalizar Anexos
     E clicar em excluir o item apreendido 'Anexo Automatizado 2'
     Então sistema deve atualizar o GRID deixando apenas o Item Aenxado 'Anexo Automatizado'
+
+Cenário: Verificar botão Finalizar
+    Dado que tenha acessado o sigam
+    E logado no sistema com usuario 'gtiAdm' e senha 'a'
+    E entrado no módulo do SIPAI
+    E no menu Vistoria
+    E ter criado uma vistoria ambiental para uma Área Protegida que o Órgão gestor seja a Fundação Florestal
+    E criar uma ocorrência do tipo não ambiental
+    E inserir dados da aba Identificação - Especificação - Caracterização da Área
+    E clicar na aba Anexos
+    Quando clicar no Botão Finalizar
+    Então o sistema volta para o Grid de Vistorias

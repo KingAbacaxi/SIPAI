@@ -15,7 +15,8 @@ Funcionalidade: Verificar cadastro de Vistoria
 #PARA manter o controle e gerenciamento das ocorrências existentes, além de acompanhar RVAs já iniciados
 #anteriormente o preenchimento correto das informações
 
-#BDD ajustado 11/04/2019 por Renan Sano - mudança por conta da User 46470-Ajustar a Regra que Gera o Número do Relatório na Vistoria Ambiental
+#BDD ajustado 11/04/2019 por Renan Sano Ferrari - mudança por conta da User 46470-Ajustar a Regra que Gera o Número do Relatório na Vistoria Ambiental
+#BDD ajustado 25/04/2019 por Renan Sano Ferrari - mudança por conta da User 46769-SIPAI-Ajustar Relatório de Vistoria Ambiental
 
 Cenario: Verificar Tela inicial do cadastro de Vistoria
 Dado que tenha acessado o SIGAM
@@ -90,3 +91,32 @@ Cenário: Verificar inclusão no Grid após cadastro
 Quando preencher todos os campos obrigatórios
 E clicar em Finalizar
 Então o sistema apresenta os cadastro da coluna Número do Relatório na ordem da sequência gerada sequencialmente e zerada essa sequência e realizado uma nova sequência quando o ano é novo
+
+Cenário: Verificar busca de AIA ou AIAe incorretos
+    Quando clicar em editar uma vistoria já cadastrada
+    E selecionar a opção Definição de Medidas de Reparação na aba Identificação
+    E clicar em AIA ou AIAe
+    E preencher com números aleatórios
+    Então o sistema apresenta a mensagem AIA não encontrado verifique o número correto
+
+Cenário: Verificar apresentação dos campos Número AIA e Número AIA-e quando selecionado diferente de Definição de Medidas de Reparação
+    Quando clicar em editar uma vistoria já cadastrada
+    E selecionar opção diferente de Definição de Medidas de Reparação na aba Identificação
+    Então o sistema não apresenta os campos Número AIA e Número AIA-e
+
+Cenário: Verificar apresentação dos campos Número AIA e Número AIA-e quando selecionado Definição de Medidas de Reparação
+    Quando clicar em editar uma vistoria já cadastrada
+    E selecionar a opção Definição de Medidas de Reparação na aba Identificação
+    Então o sistema apresenta os campos Número AIA e Número AIA-e
+
+Cenário: Verificar apresentação dos novos campos
+    Quando clicar em editar uma vistoria já cadastrada
+    E selecionar a opção Definição de Medidas de Reparação na aba Identificação
+    E selecionar o campo Número AIA ou Número AIA-e
+    E inserir um AIA válido
+    Então o sistema apresenta os novos campos Nome do Atuado
+    E CPF/CNPJ
+    E Classe
+    E Tipo
+    E Infração
+    E Enquadramento
